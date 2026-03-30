@@ -16,6 +16,6 @@ jobs:
         run: exit 1
 
       - if: failure()
-        uses: DmitriyLewen/create-issue-on-failure@226fe37244de4097488a52ddfeb7a27938d33a88
+        uses: DmitriyLewen/create-issue-on-failure@d4c648915a11ac60a9bbe0d8ff7caf7db500c7c5
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
