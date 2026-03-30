@@ -13,7 +13,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Failing step
+      - name: Step A
+        if: always()
+        run: echo "Step A passed"
+
+      - name: Step B
+        if: always()
+        run: exit 1
+
+      - name: Step C
+        if: always()
         run: exit 1
 
       - if: failure()
