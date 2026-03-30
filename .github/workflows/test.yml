@@ -15,17 +15,17 @@ jobs:
     steps:
       - name: Step A
         if: always()
-        run: echo "Step A passed"
+        run: exit 1
 
       - name: Step B
         if: always()
-        run: exit 1
+        run: echo "Step B passed"
 
       - name: Step C
         if: always()
         run: exit 1
 
       - if: failure()
-        uses: DmitriyLewen/create-issue-on-failure@3e5be03fd5bd13fa12385a2a9ea144ec0ef55545
+        uses: DmitriyLewen/create-issue-on-failure@5962d430d4bc47f2c64ae6ddbc8c9b8a76534a00
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
