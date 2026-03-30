@@ -1,0 +1,21 @@
+name: Test Create Issue on Failure
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  issues: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Failing step
+        run: exit 1
+
+      - if: failure()
+        uses: DmitriyLewen/create-issue-on-failure@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
